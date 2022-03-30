@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 const server = app.listen(PORT, () => console.log(`We live in ${process.env.NODE_ENV || "development"} mode on port ${PORT}`.green.bold));
 
