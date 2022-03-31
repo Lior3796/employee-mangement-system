@@ -2,21 +2,20 @@ const mongoose = require("mongoose");
 const slugify = require("slugify");
 
 const EmployeeSchema = new mongoose.Schema({
-    _id: {
+    id: {
         type: Number,
         required: [true, "Please add a ID"],
         unique: true,
-        length: [9, "Please add a 9 characters ID"]
-
+        validate: [(val) => val.length !== 9, "id must be 9 characters"],
     },
     Name: {
         type: String,
         required: [true, "Please add a name"],
-        unique: true,
         trim: true,
         maxlength: [50, "Name can not be more than 50 characters"],
+        validate: [(val) => /^[a-zA-Z\s]*$/.test(val), "Please add a english letters only"]
+
     },
-    slug: String,
     email: {
         type: String,
         match: [
@@ -28,12 +27,10 @@ const EmployeeSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please add an address"]
     },
-
-
 })
 
 EmployeeSchema.pre("save", function (next) {
-    this.slug = slugify(this.name, { lower: true })
+    this.slug = slugify(this.Name, { lower: true })
     next();
 })
 
