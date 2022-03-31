@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOMClient from 'react-dom/client';
 import './index.css';
 import App from './App';
 import 'flowbite';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+const rootElement = document.getElementById("root");
+
+const root = ReactDOMClient.createRoot(rootElement);
+root.render(<App callback={() => console.log("renderered")} />);
 
