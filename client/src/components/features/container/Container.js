@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { Header } from '../header/Header';
 import { Footer } from '../footer/Footer';
 import { ContainerCards } from '../containerCards/ContainerCards';

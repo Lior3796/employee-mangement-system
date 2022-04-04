@@ -1,6 +1,6 @@
-
 import { Container } from "./components/features/container/Container";
-function App() {
+import "./components/styles/style.css";
+const App = () => {
   return (
     <Container />
   );

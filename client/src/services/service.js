@@ -14,16 +14,16 @@ export const createEmployee = async (newEmployee) => {
     try {
         const response = await fetch("http://localhost:5000/employee", {
             body: JSON.stringify(newEmployee),
-            method: 'POST',
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
+                "Content-Type": "application/json"
             },
         });
         const result = await response.json();
         return result;
 
     } catch (error) {
+        console.log(error)
         return error;
     }
 }
@@ -31,7 +31,7 @@ export const createEmployee = async (newEmployee) => {
 export const deleteEmployee = async (id) => {
     try {
         const response = await fetch(`http://localhost:5000/employee/deleteUser/${id}`, {
-            method: 'DELETE'
+            method: "DELETE"
         });
         const result = await response.json();
         console.log(result)
