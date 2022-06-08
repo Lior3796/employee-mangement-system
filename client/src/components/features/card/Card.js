@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { deleteEmployee } from '../../../services/service';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -6,7 +6,6 @@ import "../../styles/style.css";
 
 export const Card = ({ Name, id, address, email }) => {
     const [showModal, setShowModal] = useState(false);
-
 
     const deleteUserFromDb = async (id) => {
         try {
